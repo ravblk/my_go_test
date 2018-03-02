@@ -41,12 +41,12 @@ func (r *Rectangle) per() float64 {
 	return (r.x2-r.x1)*2 + (r.y2-r.y1)*2
 }
 
-type Shape interface {
+type Shaper interface {
 	area() float64
 	per() float64
 }
 
-func totalAreaPer(shapes ...Shape) (float64, float64) {
+func totalAreaPer(shapes ...Shaper) (float64, float64) {
 	var area, per float64
 	for _, s := range shapes {
 		area += s.area()
